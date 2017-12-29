@@ -1,0 +1,38 @@
+<% include partials/header %>
+
+
+<div class="ui main text container">
+    <div class="ui huge header">SHOPPING LIST</div><hr>
+    <div class="ui divided items segment">
+        <% allproducts.forEach(function(product){ %>
+            <div class="item">
+                <div class="image">
+                     <img src="<%= product.image %>" >
+                </div>
+               
+                <div class="content">
+                    <a class="header" href="/products/<%= product._id %>"><%= product.name %></a>
+                    <div class="meta">
+                        <span><%= product.created.toDateString() %></span>
+                    </div>
+                    <div class="description">
+                        <p><%- product.body.substring(0,10) %> ... </p>
+                    </div>  
+                    <div class="extra">
+                        <a class="ui floated basic violet button" href="/products/<%= product._id %>">
+                            Read More
+                        </a>
+                    </div>
+                    
+                </div>
+                <hr>
+            </div>
+        <% }); %>
+    </div>   
+        
+
+</div>
+
+
+
+<% include partials/footer %>

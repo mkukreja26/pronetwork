@@ -1,0 +1,22 @@
+<% include partials/header %>
+
+
+<div class="ui main text container segment">
+    <div class="ui centered huge header"> <%= productinfo.name %> 
+        <div class="ui top attached segment">
+            <img id="imginput" src="<%= productinfo.image %>" >
+            <span><%= productinfo.created.toDateString() %></span>
+            <div class="description">
+                 <p><%- productinfo.body %> </p>
+            </div>
+            <a href="/products/<%= productinfo._id %>/edit"> 
+                <button class="ui inverted blue button">Edit</button>
+            </a>
+            <form id="delete" action="/products/<%= productinfo._id %>?_method=DELETE" method="POST">
+                <button class="ui inverted red button">Delete</button>
+                </a>
+            </form>
+        </div>
+    </div>
+</div>
+<% include partials/footer %>
